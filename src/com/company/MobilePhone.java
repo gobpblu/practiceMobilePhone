@@ -36,8 +36,17 @@ public class MobilePhone {
         return color;
     }
 
-    public SimCard[] getSimCards() {
-        return simCards;
+    public SimCard getSimCard(int simCardNumber) {
+        return simCards[simCardNumber];
     }
 
+    @Override
+    public String toString() {
+        String message = "Информация о телефоне: " + "\n" +
+                "Марка телефона: " + getModel() + "\n" +
+                "Цвет телефона: " + getColor() + "\n" +
+                getSimCard(0) +
+                getSimCard(1);
+        return message;
+    }
 }
