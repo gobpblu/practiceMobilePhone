@@ -6,7 +6,7 @@ public class SimCard {
     private String name;
     private int simCardNumber;
     private double balance;
-    String numberCallTo;
+    private String numberCallTo;
     private double callPrice;
     private double smsPrice;
     private double internetPrice;
@@ -17,10 +17,6 @@ public class SimCard {
         this.balance = balance;
         this.simCardNumber = simCardNumber;
         setInternetPrice();
-    }
-
-    public SimCard() {
-
     }
 
     public void setCorrectNumber(boolean correctNumber) {
@@ -48,7 +44,7 @@ public class SimCard {
     }
 
     public void setInternetPrice() {
-        switch (name) {
+        switch (this.name) {
             case "O!":
                 this.internetPrice = 30;
                 break;
@@ -58,6 +54,8 @@ public class SimCard {
             case "Megacom":
                 this.internetPrice = 40;
                 break;
+            default:
+                System.out.println("");
         }
     }
 
@@ -162,7 +160,7 @@ public class SimCard {
                     setSmsPrice(0);
                     break;
             }
-        } else if (nums[0] == 0 && nums[1] == 5 && nums[2] == 0 &&
+        } else if (nums[0] == 0 && ( nums[1] == 5 || nums[1] == 7) && nums[2] == 0 &&
                 nums[3] >= 0 && nums[3] <= 9) {
             setNumberCallTo(num);
             setCorrectNumber(true);
@@ -200,6 +198,10 @@ public class SimCard {
             }
         } else setCorrectNumber(false);
         } else setCorrectNumber(false);
+    }
+
+    public void addBalance(int sumBalance) {
+        setBalance(getBalance()+sumBalance);
     }
 
     @Override

@@ -4,16 +4,11 @@ public class MobilePhone {
     String model;
     String color;
     SimCard[] simCards = new SimCard[2];
-    byte needSimCard = 0;
 
     public MobilePhone(String model, String color, SimCard[] simCards) {
         this.model = model;
         this.color = color;
         this.simCards = simCards;
-    }
-
-    public MobilePhone() {
-
     }
 
     public void setModel(String model) {
